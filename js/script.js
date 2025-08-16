@@ -41,3 +41,17 @@ window.onscroll = () => {
 
 
 };
+
+/*==== scroll reveal ====*/
+
+/*ScrollReveal({ 
+    reset: true,
+    distance: '80px'
+    delay: 200
+
+
+});
+
+ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+ScrollReveal().reveal('.home img, .services-container, .porfolio-box, .contact form', { origin:
+'bottom' }); */

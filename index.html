@@ -40,9 +40,7 @@
              <h3>Hello, It's me</h3>
              <h1><span>Madhieu Lok</span></h1>
              <h3>And I'm a <span>Fullstack Developer</span> based in Egypt</h3>
-             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Quisquam fuga repellendus aperiam ut perspiciatis quae tenetur voluptatum a earum? 
-              Quia assumenda dolores consequuntur dicta earum illum odit quam doloremque placeat.</p>
+             <p>I'm a Web Developer driven by a passion for turning ideas into clean, intuitive digital experiences. I design and create user friendly and responsive web sites. </p>
               <div class="btn-box">
                 <div class="btn">Hire Me</div>
                 <div class="btn">Contact Me</div>
@@ -52,7 +50,7 @@
                 <a href="#"><i class='bx bxl-twitter' ></i></a>
                 <a href="#"><i class='bx bxl-instagram' ></i></a>
                 <a href="#"><i class='bx bxl-linkedin' ></i></a>
-                <a href="#"><i class='bx bxl-github' ></i></a>
+                <a href="https://github.com/madhieulok?tab=repositories"><i class='bx bxl-github' ></i></a>
              </div>
        </div>
 
@@ -67,9 +65,8 @@
 
          <div class="about-content">
             <h1>About <span>Me</span> </h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae sit maiores voluptate quam,
-             fugit perspiciatis adipisci saepe repellendus perferendis eius qui, distinctio, consequatur itaque 
-             architecto vero tenetur repellat. Voluptates, quod!</p>
+            <p>I'm a Passionate Web Developer with a passion for building full-stack web applications using modern technologies such as React js, and Django.
+            </p>
          </div>
 
         <h2> <span>Skills</span> </h2>
@@ -174,7 +171,7 @@
 
     <!--porfolio section design-->
 
-    <section class="porfolio" id="porfpolio">
+    <section class="porfolio" id="porfolio">
         <h2 class="heading">Latest <span>Projects</span></h2>
 
         <div class="porfolio-container">
@@ -238,19 +235,29 @@
     <!--contact section design-->
 
     <section class="contact" id="contact">
-        <h2 class="headingg">Let's<span>Chat!</span></h2>
-        <form action="#">
+        <h1 class="heading">Contact   <span>Me!</span></h1>
+        <p><i class='bx bxl-paper-plane' ></i>lokmadhieu@gmail.com</p>
+        <p><i class='fa-solid fa-phone-flip' ></i>+201157750594</p>
+        <div class="social-media">
+                <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+                <a href="#"><i class='bx bxl-instagram' ></i></a>
+                <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/madhieulok?tab=repositories"><i class='bx bxl-github' ></i></a>
+             </div>
+        <form name="submit-to-google-sheet">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" name="Name" placeholder="Full Name" required>
+                <input type="email" name="Email" placeholder="Email Address" required>
             </div>
             <div class="input-box">
                 <input type="number" placeholder="Mobile Number">
                 <input type="text" placeholder="Email Subject">
             </div>
-            <textarea name="input" id="#" placeholder="Your Message"></textarea>
+            <textarea name="Message"  placeholder="Your Message"></textarea>
             <input type="submit" value="Send Message" class="btn">
         </form>
+        <span id="msg"></span>
     </section>
 
     <!--footer design-->
@@ -263,8 +270,34 @@
         </div>
     </footer>
 
+    <!--scroll reveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+
+
     <!--custom js-->
     <script src="js/script.js"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbztdfOgDM4-dqt1XcxaXbBjxHesygAV-GVcrYjkOcbjNe4iJaAk2dCj02ShXdkZfQiH/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg = document.getElementById("msg")
+
+      form.addEventListener('submit', e => {
+      e.preventDefault()
+       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+            msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+    </script>
+
+    <!-- https://script.google.com/macros/s/AKfycbztdfOgDM4-dqt1XcxaXbBjxHesygAV-GVcrYjkOcbjNe4iJaAk2dCj02ShXdkZfQiH/exec -->
 
 </body>
 </html>
